@@ -5,7 +5,7 @@ Script to add new breaches from HIBP to the fxmonitor-breaches collection in Rem
 The script *dry-runs* by default and simply dumps the new breaches to be added to stdout.
 To push new breaches to Kinto, set the following environment variables:
 ```
-PUSH_TO_KINTO=1 # Can be any truth-y value
+PUSH_TO_KINTO=1 # Can be any non-empty value
 KINTO_USERNAME=<kinto account username>
 KINTO_PASSWORD=<kinto account password>
 ```
