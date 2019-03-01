@@ -6,6 +6,7 @@ const got = require("got");
 
 const KINTO_UPDATE_ENDPOINT = "https://settings-writer.prod.mozaws.net/v1/buckets/main-workspace/collections/fxmonitor-breaches/records";
 const PROD_RECORDS_ENDPOINT = "https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxmonitor-breaches/records";
+const HIBP_BREACHES_ENDPOINT = "https://haveibeenpwned.com/api/v2/breaches";
 
 const USERNAME = process.env.KINTO_USERNAME;
 const PASSWORD = process.env.KINTO_PASSWORD;
@@ -25,7 +26,7 @@ async function run() {
   )).body.data.map(b => b.Name));
 
   const hibp_breaches = (await got(
-    "https://haveibeenpwned.com/api/v2/breaches",
+    HIBP_BREACHES_ENDPOINT,
     { json: true }
   )).body;
 
