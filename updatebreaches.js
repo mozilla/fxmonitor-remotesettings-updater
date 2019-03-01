@@ -25,14 +25,14 @@ async function run() {
     { json: true }
   )).body.data.map(b => b.Name));
 
-  const hibp_breaches = (await got(
+  const hibpBreaches = (await got(
     HIBP_BREACHES_ENDPOINT,
     { json: true }
   )).body;
 
-  const new_breaches = [];
+  const newBreaches = [];
 
-  for (const breach of hibp_breaches) {
+  for (const breach of hibpBreaches) {
     if (breach.IsSpamList || breach.IsRetired || !breach.IsVerified || !breach.Domain) {
       continue;
     }
@@ -41,12 +41,12 @@ async function run() {
       continue;
     }
 
-    new_breaches.push(breach);
+    newBreaches.push(breach);
   }
 
-  console.log(`${new_breaches.length} new breach(es) found.`);
+  console.log(`${newBreaches.length} new breach(es) found.`);
 
-  for (const breach of new_breaches) {
+  for (const breach of newBreaches) {
     const data = {
       Name: breach.Name,
       Domain: breach.Domain,
