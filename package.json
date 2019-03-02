@@ -32,7 +32,6 @@
   "scripts": {
     "eslint": "eslint . --ext jsm,js,json",
     "lint": "npm-run-all lint:*",
-    "lint:eslint": "npm run eslint",
-    "run": "node updatebreaches.js"
+    "lint:eslint": "npm run eslint"
   }
 }
