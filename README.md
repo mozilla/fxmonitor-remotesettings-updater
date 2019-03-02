@@ -11,7 +11,7 @@ KINTO_PASSWORD=<kinto account password>
 ```
 To run:
 ```
-node updatebreaches.js
+npm run
 ```
 Note: VPN access is required to access Kinto server.
 
